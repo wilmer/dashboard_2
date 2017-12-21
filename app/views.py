@@ -31,7 +31,7 @@ def country_population(request):
 
 class CountryViewSet(viewsets.ModelViewSet):
     """
-    List all Delivered Orders for logged in user.
+    List all Countries
     """
     serializer_class = CountrySerializer
 
