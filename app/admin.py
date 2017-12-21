@@ -10,5 +10,5 @@ class CountryAdmin(admin.ModelAdmin):
     list_display = ('country_name', 'country_code', 'iso_codes', 'population', 'area', 'gdp')
     search_fields = ['country_name']
 
-admin.site.register(Country, CountryAdmin)
 
+admin.site.register(Country, CountryAdmin)
