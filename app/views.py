@@ -7,8 +7,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import Country
-from .serializers import CountrySerializer
+from .models import ControlOperacional
+from .serializers import ControlOperacionalSerializer
 
 
 @api_view(['GET'])
@@ -20,21 +20,21 @@ def api_root(request, format=None):
     :return: Response
     """
     return Response({
-        # 'countries': reverse('countries', request=request, format=format),
+        # 'controloperacional': reverse('countries', request=request, format=format),
     })
 
 
-def country_population(request):
+def metros_perforados(request):
     context = {}
-    return render(request, 'app/country_population.html', context)
+    return render(request, 'app/chart.html', context)
 
 
-class CountryViewSet(viewsets.ModelViewSet):
+class ControlOperacionalViewSet(viewsets.ModelViewSet):
     """
     List all Countries
     """
-    serializer_class = CountrySerializer
+    serializer_class = ControlOperacionalSerializer
 
     def get_queryset(self):
-        queryset = Country.objects.all()
+        queryset = ControlOperacional.objects.all()
         return queryset

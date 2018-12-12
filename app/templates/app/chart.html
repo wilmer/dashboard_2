@@ -13,16 +13,16 @@
     fill: brown;
   }
 
-	.axis {
-	  font: 10px sans-serif;
-	}
+    .axis {
+      font: 10px sans-serif;
+    }
 
-	.axis path,
-	.axis line {
-	  fill: none;
-	  stroke: #000;
-	  shape-rendering: crispEdges;
-	}
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
     </style>
 </head>
 
@@ -63,16 +63,16 @@ var svg = d3.select("body").append("svg")
 
 
 // load the data
-d3.json("/api/v1/country/", function(error, data) {
+d3.json("/api/v1/controloperacional/", function(error, data) {
 
     data.forEach(function(d) {
-        d.country_name = d.country_name;
-        d.population = +d.population;
+        d.nombre_operador = d.nombre_operador;
+        d.metros_perforados = +d.metros_perforados;
     });
 
   // scale the range of the data
-  x.domain(data.map(function(d) { return d.country_name; }));
-  y.domain([0, d3.max(data, function(d) { return d.population; })]);
+  x.domain(data.map(function(d) { return d.nombre_operador; }));
+  y.domain([0, d3.max(data, function(d) { return d.metros_perforados; })]);
 
   // add axis
   svg.append("g")
@@ -93,7 +93,7 @@ d3.json("/api/v1/country/", function(error, data) {
       .attr("y", 5)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("population");
+      .text("metros_perforados");
 
 
   // Add bar chart
@@ -101,10 +101,10 @@ d3.json("/api/v1/country/", function(error, data) {
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.country_name); })
+      .attr("x", function(d) { return x(d.nombre_operador); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.population); })
-      .attr("height", function(d) { return height - y(d.population); });
+      .attr("y", function(d) { return y(d.metros_perforados); })
+      .attr("height", function(d) { return height - y(d.metros_perforados); });
 
 });
 

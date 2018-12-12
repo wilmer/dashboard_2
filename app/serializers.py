@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from .models import Country
+from .models import ControlOperacional
 
 
-class CountrySerializer(serializers.Serializer):
-    country_name = serializers.CharField()
-    country_code = serializers.CharField()
-    iso_codes = serializers.CharField()
-    population = serializers.IntegerField()
-    area = serializers.CharField()
-    gdp = serializers.CharField()
+class ControlOperacionalSerializer(serializers.Serializer):
+    nombre_operador = serializers.CharField()
+    codigo_equipo = serializers.CharField()
+    fecha = serializers.CharField()
+    metros_perforados = serializers.IntegerField()
+    horas_operacion = serializers.CharField()
+    turno = serializers.CharField()
 
     def create(self, validated_data):
         pass
@@ -17,6 +17,6 @@ class CountrySerializer(serializers.Serializer):
         pass
 
     class Meta:
-        model = Country
-        field = ('id', 'country_name', 'country_code', 'iso_codes', 'population', 'area', 'gdp',)
+        model = ControlOperacional
+        field = ('id', 'nombre_operador', 'codigo_equipo', 'fecha', 'metros_perforados', 'horas_operacion', 'turno',)
         fields = '__all__'
