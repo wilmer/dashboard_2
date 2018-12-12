@@ -1,5 +1,5 @@
-# D3js Bar Chart using Django REST Framework
+# DashBoard en tiempo real para el control de las operaciones de la mina
 
-Load country data from csv
+Load data from csv
 
-    $ python load_data.py data/country_population.csv
+    $ python load_data.py data/control_operacional_data.csv
